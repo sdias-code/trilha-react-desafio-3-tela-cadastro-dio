@@ -19,6 +19,10 @@ const Login = () => {
         mode: 'onChange',
     });
 
+      const handleClickCriarConta = () => {
+        navigate('/cadastro')
+    }
+
     const onSubmit = async (formData) => {
         try{
             const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.senha}`);
@@ -56,7 +60,7 @@ const Login = () => {
                 </form>
                 <Row>
                     <EsqueciText>Esqueci minha senha</EsqueciText>
-                    <CriarText>Criar Conta</CriarText>
+                    <CriarText onClick={handleClickCriarConta}>Criar Conta</CriarText>
                 </Row>
                 </Wrapper>
             </Column>
